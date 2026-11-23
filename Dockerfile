@@ -2,7 +2,7 @@ FROM node:22-alpine
 
 WORKDIR /app
 COPY package*.json ./
-RUN npm config set registry https://registry.npmmirror.com && npm ci --omit=dev --ignore-scripts
+ENV NPM_CONFIG_REGISTRY=https://registry.npmmirror.com
 COPY src ./src
 
 ENV PORT=3456
